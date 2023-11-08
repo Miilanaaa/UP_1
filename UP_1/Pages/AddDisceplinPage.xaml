@@ -173,5 +173,17 @@
                 Content="Удалить дисциплину" 
                 FontWeight="Medium"
                 Background="Thistle" Click="DelBT_Click" />
+        <Button x:Name="RedBT" 
+                Grid.Column="5"
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="100"
+                Height="40"
+                FontSize="15"
+                Content="Изменить" 
+                FontWeight="Medium"
+                Background="Thistle" Click="RedBT_Click"/>
+
     </Grid>
 </Page>

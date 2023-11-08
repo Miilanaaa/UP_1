@@ -64,5 +64,15 @@ namespace UP_1.Pages
                 MessageBox.Show("Эта дисциплина удалена");
             }
         }
+
+        private void RedBT_Click(object sender, RoutedEventArgs e)
+        {
+            if (KafedraLV.SelectedItem is Disciplina disciplina)
+            {
+                KafedraLV.SelectedItem = null;
+                NavigationService.Navigate(new DisRedPage(disciplina));
+            }
+            
+        }
     }
 }
