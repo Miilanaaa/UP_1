@@ -1,0 +1,177 @@
+﻿<Page x:Class="UP_1.Pages.AddDisceplinPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UP_1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddDisceplinPage">
+
+    <Grid Background="Lavender">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="1" 
+                   Grid.ColumnSpan="4" 
+                   Grid.Row="0" 
+                   Text="Добавление дисциплин"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" 
+                   FontWeight="ExtraLight"
+                   FontSize="28"/>
+        <ListView x:Name="KafedraLV" 
+                  Grid.Column="1" 
+                  Grid.ColumnSpan="4" 
+                  Grid.Row="1" 
+                  Margin="5"
+                  Grid.RowSpan="4"
+                  ItemsSource="{Binding disciplinas}" >
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Номер"
+                            Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Id_Disciplina}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Объем"
+                            Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Obem}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Наименование дисциплины"
+                            Width="250">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Name_Disciplina}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Абривиатура кафедры"
+                            Width="170">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Kafedra.Name_Kafedra}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock Text="Наименование дисциплины"
+                   Grid.Row="5"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   HorizontalAlignment="Center"
+                   Margin="50 0 0 0"
+                   VerticalAlignment="Center" 
+                   FontWeight="ExtraLight"
+                   FontSize="23"/>
+        <TextBox Grid.Column="3"
+                 Grid.Row="5"
+                 Grid.ColumnSpan="2"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 Margin="10 0 0 0"
+                 Width="150"
+                 Height="40"
+                 x:Name="NameDisTB"
+                 Text= "{Binding Name_Disciplina}">
+        </TextBox>
+        <TextBlock  Text="Кафедра"
+                    Grid.Row="6"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="20 5 0 0"
+                    FontWeight="ExtraLight"
+                    FontSize="20"
+                    Width="150"
+                    Height="40"/>
+        <ComboBox x:Name="KafedraCB"
+                  Grid.Column="3"
+                  Grid.Row="6"
+                  Grid.ColumnSpan="2"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Margin="10,8,0,0"
+                  Width="150"
+                  Height="40"
+                  ItemsSource="{Binding kafedras}"
+                  >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name_Kafedra}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button x:Name="ExitBT" 
+                Grid.Column="0"
+                Grid.Row="7"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="200"
+                Height="40"
+                FontSize="15"
+                Content="Записать дисциплину" 
+                FontWeight="Medium"
+                Background="Thistle" Click="ExitBT_Click"/>
+        <Button x:Name="EBT" 
+                Grid.Column="2"
+                Grid.Row="7"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="200"
+                Height="40"
+                FontSize="15"
+                Content="Главная" 
+                FontWeight="Medium"
+                Background="Thistle" Click="EBT_Click"/>
+        <Button x:Name="DelBT" 
+                Grid.Column="4"
+                Grid.Row="7"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="200"
+                Height="40"
+                FontSize="15"
+                Content="Удалить дисциплину" 
+                FontWeight="Medium"
+                Background="Thistle" Click="DelBT_Click" />
+    </Grid>
+</Page>

@@ -1,0 +1,183 @@
+﻿<Page x:Class="UP_1.Pages.AddEmployeePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UP_1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEmployeePage">
+
+    <Grid Background="Lavender">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="1" 
+                   Grid.ColumnSpan="4" 
+                   Grid.Row="0" 
+                   Text="Добавление сотрудников"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" 
+                   FontWeight="ExtraLight"
+                   FontSize="28"/>
+        <ListView x:Name="EmployeeLV" 
+                  Grid.Column="1" 
+                  Grid.ColumnSpan="4" 
+                  Grid.Row="1" 
+                  Margin="5"
+                  Grid.RowSpan="4"
+                  ItemsSource="{Binding employees}" >
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Номер"
+                            Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Id_Employee}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Наименование кафедры"
+                            Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Kafedra.Name_Kafedra}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="ФИО сотрудника"
+                            Width="140">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding FIO}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Доолжность"
+                            Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Post}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Зарплата"
+                            Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Oklad}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Шеф"
+                            Width="30">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Shef}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock Text="Фамилия"
+                   Grid.Row="5"
+                   Grid.Column="2"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Left"
+                   Margin="19 0 0 0"
+                   VerticalAlignment="Center" 
+                   FontWeight="ExtraLight"
+                   FontSize="23"/>
+        <TextBox Grid.Column="3"
+                 Grid.Row="5"
+                 Grid.ColumnSpan="2"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Center"
+                 Margin="10 0 0 0"
+                 Width="150"
+                 Height="40"
+                 x:Name="Em_SurnameTB"
+                 Text= "{Binding FIO}">
+        </TextBox>
+        <TextBlock  Text="Должность"
+                    Grid.Row="6"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="20 5 0 0"
+                    FontWeight="ExtraLight"
+                    FontSize="20"
+                    Width="150"
+                    Height="40"/>
+        <ComboBox x:Name="DoljnostCB"
+                  Grid.Column="3"
+                  Grid.Row="6"
+                  Grid.ColumnSpan="2"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Margin="10,8,0,0"
+                  Width="150"
+                  Height="40">
+            <ComboBoxItem Content="зав. кафедрой"/>
+            <ComboBoxItem Content="преподаватель"/>
+            <ComboBoxItem Content="инженер"/>
+        </ComboBox>
+        <Button x:Name="ExitBT" 
+                Grid.Column="0"
+                Grid.Row="7"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="200"
+                Height="40"
+                FontSize="15"
+                Content="Записать сотрудника" 
+                FontWeight="Medium"
+                Background="Thistle" Click="ExitBT_Click"/>
+        <Button x:Name="EBT" 
+                Grid.Column="2"
+                Grid.Row="7"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="200"
+                Height="40"
+                FontSize="15"
+                Content="Главная" 
+                FontWeight="Medium"
+                Background="Thistle" Click="EBT_Click"/>
+        <Button x:Name="DelBT" 
+                Grid.Column="4"
+                Grid.Row="7"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="200"
+                Height="40"
+                FontSize="15"
+                Content="Удалить сотрудника" 
+                FontWeight="Medium"
+                Background="Thistle" Click="DelBT_Click"/>
+    </Grid>
+</Page>
